@@ -5,19 +5,19 @@ import FavouritesContext from "../../store/favourites-context";
 
 function MeetupItem(props) {
   const favouritesCtx = useContext(FavouritesContext);
-  const itemIsFavourite = favouritesCtx.isFavourite(props.id);
+  const itemIsFavourite = favouritesCtx.isFavourite(props.meetup.id);
 
   function toggleFavouriteStateHandler() {
     if (itemIsFavourite) {
-      favouritesCtx.removeFavourite(props.id);
+      favouritesCtx.removeFavourite(props.meetup.id);
       return;
     }
     favouritesCtx.addFavourite({
-      id: props.id,
-      title: props.title,
-      description: props.description,
-      image: props.image,
-      address: props.address,
+      id: props.meetup.id,
+      title: props.meetup.title,
+      description: props.meetup.description,
+      image: props.meetup.image,
+      address: props.meetup.address,
     });
   }
 
